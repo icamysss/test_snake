@@ -1,4 +1,3 @@
-using Steamworks;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -210,10 +209,6 @@ public class DataManager : MonoBehaviour
 	{
 		ES3.Save(GetSaveKeyName(), data, saveSettings);
 		ES3.CreateBackup(saveSettings);
-		if (SteamManager.Initialized)
-		{
-			SteamUserStats.StoreStats();
-		}
 		PlayerPrefs.Save();
 	}
 
@@ -235,10 +230,6 @@ public class DataManager : MonoBehaviour
 				UnityEngine.Debug.Log("Backup could not be restored as no backup exists.");
 				data = new Data();
 			}
-		}
-		if (SteamManager.Initialized)
-		{
-			SteamUserStats.RequestCurrentStats();
 		}
 	}
 
@@ -265,37 +256,13 @@ public class DataManager : MonoBehaviour
 		if (AchievementAndStatisticsEnabled)
 		{
 			bool pbAchieved;
-			if (SteamManager.Initialized && SteamUserStats.GetAchievement(achievementName, out pbAchieved) && !pbAchieved)
-			{
-				SteamUserStats.SetAchievement(achievementName);
-				SteamUserStats.StoreStats();
-			}
 			if (save)
 			{
 				Save();
 			}
 		}
 	}
-
-	public static void UpdateSteamStats()
-	{
-		if (SteamManager.Initialized)
-		{
-			SteamUserStats.SetStat("stat_count_deaths", data.stat_count_deaths);
-			SteamUserStats.SetStat("stat_count_bulletShots", data.stat_count_bulletShots);
-			SteamUserStats.SetStat("stat_count_friendlyDeaths", data.stat_count_friendlyDeaths);
-			SteamUserStats.SetStat("stat_count_enemyKills", data.stat_count_enemyKills);
-			SteamUserStats.SetStat("stat_count_friendlyKills", data.stat_count_friendlyKills);
-			SteamUserStats.SetStat("stat_count_frindlyKills_UnSaved", data.stat_count_frindlyKills_UnSaved);
-			SteamUserStats.SetStat("stat_count_friendlyRescued", data.stat_count_friendlyRescued);
-			SteamUserStats.SetStat("stat_levels_finished_01", data.stat_levels_finished_01);
-			SteamUserStats.SetStat("stat_levels_finished_02", data.stat_levels_finished_02);
-			SteamUserStats.SetStat("stat_levels_finished_03", data.stat_levels_finished_03);
-			SteamUserStats.SetStat("stat_levels_finished_04", data.stat_levels_finished_04);
-			SteamUserStats.SetStat("stat_levels_finished_05", data.stat_levels_finished_05);
-			SteamUserStats.StoreStats();
-		}
-	}
+	
 
 	public static void CountPlayerDead()
 	{
@@ -309,13 +276,7 @@ public class DataManager : MonoBehaviour
 		}
 	}
 
-	public static void CountBulletShot()
-	{
-		if (AchievementAndStatisticsEnabled)
-		{
-			data.stat_count_bulletShots++;
-		}
-	}
+
 
 	public static void CountFriendlyDead()
 	{
@@ -519,52 +480,5 @@ public class DataManager : MonoBehaviour
 	{
 		data = new Data();
 		Save();
-	}
-
-	public static void ClearAchievement(string achievementName)
-	{
-		if (SteamManager.Initialized)
-		{
-			SteamUserStats.ClearAchievement(achievementName);
-		}
-	}
-
-	public static void ClearAllAchievements()
-	{
-		if (SteamManager.Initialized)
-		{
-			string[] array = new string[25]
-			{
-				"count_death_1",
-				"finishLevelWithFriends_4",
-				"snakeLength_10",
-				"friendlyKilledUnsaved_10",
-				"killAllFriendliesWhenFinished",
-				"finishedTheWholeGame",
-				"finishLevelWithFriends_8",
-				"kill4withABomb",
-				"badass",
-				"friendlyKilled_20",
-				"enemyKilled_1",
-				"enemyKilled_50",
-				"enemyKilled_100",
-				"killByABomb",
-				"levelFinished_1",
-				"levelFinished_2",
-				"levelFinished_3",
-				"levelFinished_4",
-				"levelFinished_5",
-				"friendlyRescued_50",
-				"peaceElite",
-				"firstPersonFinished",
-				"finishSpecialModeWithSuitMan",
-				"defeatTheMyth",
-				"finishSpecialModeWithTheMyth"
-			};
-			for (int i = 0; i < array.Length; i++)
-			{
-				SteamUserStats.ClearAchievement(array[i]);
-			}
-		}
 	}
 }
