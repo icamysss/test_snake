@@ -24,7 +24,7 @@ namespace Com.LuisPedroFonseca.ProCamera2D.TopDownShooter
 		private void Start()
 		{
 			_characterController = GetComponent<CharacterController>();
-			ProCamera2DCinematics[] array = UnityEngine.Object.FindObjectsOfType<ProCamera2DCinematics>();
+			ProCamera2DCinematics[] array = Object.FindObjectsByType<ProCamera2DCinematics>(FindObjectsSortMode.None);
 			for (int i = 0; i < array.Length; i++)
 			{
 				array[i].OnCinematicStarted.AddListener(delegate

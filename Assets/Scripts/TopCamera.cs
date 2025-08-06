@@ -8,17 +8,13 @@ public class TopCamera : MonoBehaviour
 	[HideInInspector]
 	public float brightness;
 
-	private Camera camera;
+	private Camera _camera;
 
-	public Camera Camera => camera;
+	public Camera Camera => _camera;
 
 	private void Awake()
 	{
-		camera = GetComponent<Camera>();
-	}
-
-	private void Update()
-	{
+		_camera = GetComponent<Camera>();
 	}
 
 	private void OnRenderImage(RenderTexture source, RenderTexture destination)

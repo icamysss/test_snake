@@ -72,8 +72,7 @@ public class LevelManager : MonoBehaviour
 	private bool readyToLoad;
 
 	private int toLoadIndex;
-
-	private bool countStarted;
+	
 
 	public static LevelManager instance
 	{
@@ -161,10 +160,6 @@ public class LevelManager : MonoBehaviour
 	{
 		levelIndex = 0;
 		LoadLevel(0);
-	}
-
-	private void Start()
-	{
 	}
 
 	private void Update()
@@ -373,22 +368,16 @@ public class LevelManager : MonoBehaviour
 
 	public void CountABro()
 	{
-		countStarted = true;
 		totalBroCount++;
-		savedBroCount = savedBroCount;
 		unsavedBroCount++;
-		teamBroCount = teamBroCount;
-		deadBroCount = deadBroCount;
 		UpdateUICount();
 	}
 
 	public void SaveABro()
 	{
-		totalBroCount = totalBroCount;
 		savedBroCount++;
 		unsavedBroCount--;
 		teamBroCount++;
-		deadBroCount = deadBroCount;
 		UpdateUICount();
 		DataManager.SaveBroContext context = default(DataManager.SaveBroContext);
 		context.teamCount = TeamBroCount;
@@ -397,8 +386,6 @@ public class LevelManager : MonoBehaviour
 
 	public void KillABro(bool saved)
 	{
-		totalBroCount = totalBroCount;
-		savedBroCount = savedBroCount;
 		if (saved)
 		{
 			teamBroCount--;
@@ -454,14 +441,6 @@ public class LevelManager : MonoBehaviour
 	{
 		levelIndex = _levelIndex;
 		SceneManager.LoadScene("level" + _levelIndex.ToString(), LoadSceneMode.Single);
-	}
-
-	private void FadeIn()
-	{
-		if (GameManager.Instance.CameraManager.TopDownCameraArm != null)
-		{
-			GameManager.Instance.CameraManager.RenderCamera.FadeIn();
-		}
 	}
 
 	public static void ReloadCurrentLevel()

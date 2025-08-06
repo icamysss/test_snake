@@ -17,7 +17,7 @@ namespace Com.LuisPedroFonseca.ProCamera2D
 
 		private Dictionary<CameraTarget, Transform> _cameraTargetsOnRails = new Dictionary<CameraTarget, Transform>();
 
-		private List<CameraTarget> _tempCameraTargets = new List<CameraTarget>();
+		private List<CameraTarget> _tempCameraTargets = new();
 
 		private KDTree _kdTree;
 

@@ -16,7 +16,7 @@ public class Breakable : MonoBehaviour
 	private bool shake = true;
 
 	[SerializeField]
-	private Renderer renderer;
+	private Renderer rendererB;
 
 	[SerializeField]
 	private Color hitColor;
@@ -60,11 +60,11 @@ public class Breakable : MonoBehaviour
 
 	private void Update()
 	{
-		if (hitEmiValue > 0f && renderer != null)
+		if (hitEmiValue > 0f && rendererB != null)
 		{
 			hitEmiValue -= Time.deltaTime * 7f;
 			hitEmiValue = Mathf.Clamp01(hitEmiValue);
-			renderer.material.SetColor("_EmissionColor", hitColor * hitIntensity * hitEmiValue);
+			rendererB.material.SetColor("_EmissionColor", hitColor * hitIntensity * hitEmiValue);
 		}
 		if (health <= 0)
 		{

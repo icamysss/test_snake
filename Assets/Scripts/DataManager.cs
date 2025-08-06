@@ -255,7 +255,6 @@ public class DataManager : MonoBehaviour
 	{
 		if (AchievementAndStatisticsEnabled)
 		{
-			bool pbAchieved;
 			if (save)
 			{
 				Save();

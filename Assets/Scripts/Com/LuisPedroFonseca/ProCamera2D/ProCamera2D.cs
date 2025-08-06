@@ -126,8 +126,8 @@ namespace Com.LuisPedroFonseca.ProCamera2D
 			{
 				if (object.Equals(_instance, null))
 				{
-					_instance = (UnityEngine.Object.FindObjectOfType(typeof(ProCamera2D)) as ProCamera2D);
-					if (object.Equals(_instance, null))
+					_instance = (FindFirstObjectByType(typeof(ProCamera2D)) as ProCamera2D);
+					if (Equals(_instance, null))
 					{
 						throw new UnityException("ProCamera2D does not exist.");
 					}

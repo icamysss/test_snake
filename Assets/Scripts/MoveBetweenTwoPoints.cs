@@ -8,7 +8,7 @@ public class MoveBetweenTwoPoints : PeriodicalBehaviour
 
 	public Transform target;
 
-	public Rigidbody2D rigidbody;
+	public Rigidbody2D rigidbodyMBT;
 
 	public AnimationCurve curve;
 
@@ -38,9 +38,9 @@ public class MoveBetweenTwoPoints : PeriodicalBehaviour
 			{
 				a = Vector2.zero;
 			}
-			if (rigidbody != null)
+			if (rigidbodyMBT != null)
 			{
-				rigidbody.linearVelocity = a / Time.deltaTime;
+				rigidbodyMBT.linearVelocity = a / Time.deltaTime;
 			}
 			else
 			{
@@ -66,9 +66,9 @@ public class MoveBetweenTwoPoints : PeriodicalBehaviour
 			{
 				a = Vector2.zero;
 			}
-			if (rigidbody != null)
+			if (rigidbodyMBT != null)
 			{
-				rigidbody.linearVelocity = a / Time.fixedDeltaTime;
+				rigidbodyMBT.linearVelocity = a / Time.fixedDeltaTime;
 			}
 			else
 			{
@@ -91,9 +91,9 @@ public class MoveBetweenTwoPoints : PeriodicalBehaviour
 	{
 		float t = curve.Evaluate(base.t01);
 		Vector3 vector = base.transform.position + Vector3.Lerp(posA, posB, t);
-		if (rigidbody != null)
+		if (rigidbodyMBT != null)
 		{
-			rigidbody.MovePosition(vector);
+			rigidbodyMBT.MovePosition(vector);
 		}
 		else if (target != null)
 		{

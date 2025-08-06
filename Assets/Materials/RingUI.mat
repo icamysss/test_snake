@@ -93,3 +93,4 @@ Material:
     - _HealthColor: {r: 0.5735392, g: 5.216475, b: 0.08193417, a: 1}
     - _MainColor: {r: 0.848, g: 1.51658, b: 2.176, a: 0}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1

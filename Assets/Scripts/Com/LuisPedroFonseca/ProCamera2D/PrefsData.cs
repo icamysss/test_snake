@@ -66,10 +66,10 @@ namespace Com.LuisPedroFonseca.ProCamera2D
 
 		public static string TriggerShapeColorKey = "Trigger Shape";
 
-		public static Color TriggerShapeColorValue = new Color(Color.cyan.r, Color.cyan.g, Color.cyan.b, 0.3f);
+	   public static Color TriggerShapeColorValue = new Color(Color.cyan.r, Color.cyan.g, Color.cyan.b, 0.3f);
 
 		public static string RailsColorKey = "Rails";
-
+		
 		public static Color RailsColorValue = Color.white;
 
 		public static float RailsSnapping = 0.1f;

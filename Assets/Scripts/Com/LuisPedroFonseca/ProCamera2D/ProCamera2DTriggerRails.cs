@@ -20,11 +20,11 @@ namespace Com.LuisPedroFonseca.ProCamera2D
 			{
 				if (ProCamera2DRails == null)
 				{
-					ProCamera2DRails = Object.FindObjectOfType<ProCamera2DRails>();
+					ProCamera2DRails = FindFirstObjectByType<ProCamera2DRails>();
 				}
 				if (ProCamera2DRails == null)
 				{
-					UnityEngine.Debug.LogWarning("Rails extension couldn't be found on ProCamera2D. Please enable it to use this trigger.");
+					Debug.LogWarning("Rails extension couldn't be found on ProCamera2D. Please enable it to use this trigger.");
 				}
 			}
 		}

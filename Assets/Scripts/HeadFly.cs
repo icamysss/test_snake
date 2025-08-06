@@ -6,7 +6,7 @@ public class HeadFly : MonoBehaviour
 
 	private Rigidbody rb;
 
-	public Collider collider;
+	public Collider colliderHF;
 
 	[Range(0f, 1f)]
 	public float chance = 0.3f;
@@ -25,7 +25,7 @@ public class HeadFly : MonoBehaviour
 		{
 			fly = true;
 			rb = base.gameObject.AddComponent<Rigidbody>();
-			collider.enabled = true;
+			colliderHF.enabled = true;
 			rb.mass = 2f;
 			base.transform.SetParent(null);
 			rb.linearVelocity = Vector3.up * UnityEngine.Random.Range(5, 12);

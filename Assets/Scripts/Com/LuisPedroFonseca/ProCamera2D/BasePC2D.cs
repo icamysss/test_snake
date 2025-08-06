@@ -36,11 +36,11 @@ namespace Com.LuisPedroFonseca.ProCamera2D
 				}
 				if (_pc2D == null)
 				{
-					_pc2D = (UnityEngine.Object.FindObjectOfType(typeof(ProCamera2D)) as ProCamera2D);
+					_pc2D = (FindFirstObjectByType(typeof(ProCamera2D)) as ProCamera2D);
 				}
 				if (_pc2D == null)
 				{
-					UnityEngine.Debug.LogWarning(GetType().Name + ": ProCamera2D not found! Please add the ProCamera2D.cs component to your main camera.");
+					Debug.LogWarning(GetType().Name + ": ProCamera2D not found! Please add the ProCamera2D.cs component to your main camera.");
 				}
 				return _pc2D;
 			}

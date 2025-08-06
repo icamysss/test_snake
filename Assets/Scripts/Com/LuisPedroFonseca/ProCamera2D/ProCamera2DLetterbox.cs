@@ -38,11 +38,12 @@ namespace Com.LuisPedroFonseca.ProCamera2D
 			}
 		}
 
+		[Obsolete("Obsolete")]
 		private void OnEnable()
 		{
 			if (!SystemInfo.supportsImageEffects)
 			{
-				base.enabled = false;
+				enabled = false;
 			}
 			_previousAmount = float.MaxValue;
 			if (TopPropertyID == 0)

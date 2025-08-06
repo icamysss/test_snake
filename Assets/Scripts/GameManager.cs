@@ -12,8 +12,6 @@ public class GameManager : MonoBehaviour
 
 	private PhysicsManager physicsManager;
 
-	private PostManager postManager;
-
 	private TimeScaleManager timeScaleManager;
 
 	private BoomManager boomManager;
@@ -33,8 +31,6 @@ public class GameManager : MonoBehaviour
 	public ParticleManager ParticleManager => particleManager;
 
 	public PhysicsManager PhysicsManager => physicsManager;
-
-	public PostManager PostManager => postManager;
 
 	public TimeScaleManager TimeScaleManager => timeScaleManager;
 
@@ -56,7 +52,6 @@ public class GameManager : MonoBehaviour
 		layerManager = GetComponent<LayerManager>();
 		particleManager = GetComponent<ParticleManager>();
 		physicsManager = GetComponent<PhysicsManager>();
-		postManager = GetComponent<PostManager>();
 		timeScaleManager = GetComponent<TimeScaleManager>();
 		boomManager = GetComponent<BoomManager>();
 		uiManager = GetComponent<UIManager>();

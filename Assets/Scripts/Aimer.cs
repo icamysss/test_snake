@@ -15,7 +15,7 @@ public class Aimer : MonoBehaviour
 
 	public aimWays aimWay;
 
-	public Rigidbody rigidbody;
+	public Rigidbody rigidbodyAimer;
 
 	[Space]
 	[Header("Joints")]
@@ -111,9 +111,9 @@ public class Aimer : MonoBehaviour
 						base.transform.rotation = Quaternion.LookRotation(FCTool.Vector3YToZero(pointer.position - base.transform.position), Vector3.up);
 					}
 				}
-				else if (aimWay == aimWays.aimMoveDirection && rigidbody != null)
+				else if (aimWay == aimWays.aimMoveDirection && rigidbodyAimer != null)
 				{
-					lookVector = FCTool.Vector3YToZero(rigidbody.linearVelocity);
+					lookVector = FCTool.Vector3YToZero(rigidbodyAimer.linearVelocity);
 					if (lookVector.magnitude > 0.15f)
 					{
 						base.transform.rotation = Quaternion.LookRotation(lookVector, Vector3.up);

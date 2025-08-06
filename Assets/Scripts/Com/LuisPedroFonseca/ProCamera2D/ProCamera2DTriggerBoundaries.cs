@@ -71,7 +71,7 @@ namespace Com.LuisPedroFonseca.ProCamera2D
 			{
 				if (value && !_setAsStartingBoundaries)
 				{
-					UnityEngine.Object[] array = UnityEngine.Object.FindObjectsOfType(typeof(ProCamera2DTriggerBoundaries));
+					UnityEngine.Object[] array = FindObjectsByType<ProCamera2DTriggerBoundaries>(FindObjectsSortMode.None);
 					for (int i = 0; i < array.Length; i++)
 					{
 						((ProCamera2DTriggerBoundaries)array[i]).SetAsStartingBoundaries = false;
@@ -110,11 +110,11 @@ namespace Com.LuisPedroFonseca.ProCamera2D
 
 		private void Start()
 		{
-			if (!(base.ProCamera2D == null))
+			if (!(ProCamera2D == null))
 			{
 				if (NumericBoundaries == null)
 				{
-					ProCamera2DNumericBoundaries proCamera2DNumericBoundaries = UnityEngine.Object.FindObjectOfType<ProCamera2DNumericBoundaries>();
+					ProCamera2DNumericBoundaries proCamera2DNumericBoundaries = FindFirstObjectByType<ProCamera2DNumericBoundaries>();
 					NumericBoundaries = ((proCamera2DNumericBoundaries == null) ? base.ProCamera2D.gameObject.AddComponent<ProCamera2DNumericBoundaries>() : proCamera2DNumericBoundaries);
 				}
 				_boundsAnim = new BoundariesAnimator(base.ProCamera2D, NumericBoundaries);

@@ -4,7 +4,7 @@ namespace Com.LuisPedroFonseca.ProCamera2D
 {
 	internal struct IntPoint : IEquatable<IntPoint>
 	{
-		public static IntPoint MaxValue = new IntPoint
+		public static IntPoint MaxValue = new()
 		{
 			X = int.MaxValue,
 			Y = int.MaxValue

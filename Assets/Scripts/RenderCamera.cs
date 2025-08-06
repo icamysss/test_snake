@@ -4,7 +4,7 @@ public class RenderCamera : MonoBehaviour
 {
 	private Camera targetCamera;
 
-	private Camera camera;
+	private Camera _camera;
 
 	[SerializeField]
 	private TopCamera topCamera;
@@ -19,13 +19,13 @@ public class RenderCamera : MonoBehaviour
 
 	public Camera TargetCamera => targetCamera;
 
-	public Camera Camera => camera;
+	public Camera Camera => _camera;
 
 	public TopCamera TopCamera => topCamera;
 
 	private void Awake()
 	{
-		camera = GetComponent<Camera>();
+		_camera = GetComponent<Camera>();
 		topCamera.blackMaterial = blackMaterial;
 	}
 
@@ -41,10 +41,10 @@ public class RenderCamera : MonoBehaviour
 			base.transform.parent = targetCamera.transform;
 			base.transform.position = targetCamera.transform.position;
 			base.transform.rotation = targetCamera.transform.rotation;
-			camera.farClipPlane = targetCamera.farClipPlane;
-			camera.nearClipPlane = TargetCamera.nearClipPlane;
-			camera.cullingMask = TargetCamera.cullingMask;
-			camera.fieldOfView = TargetCamera.fieldOfView;
+			_camera.farClipPlane = targetCamera.farClipPlane;
+			_camera.nearClipPlane = TargetCamera.nearClipPlane;
+			_camera.cullingMask = TargetCamera.cullingMask;
+			_camera.fieldOfView = TargetCamera.fieldOfView;
 		}
 	}
 

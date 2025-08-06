@@ -97,7 +97,7 @@ namespace Com.LuisPedroFonseca.ProCamera2D
 
 		public void CalculateParallaxObjectsOffset()
 		{
-			ProCamera2DParallaxObject[] array = Object.FindObjectsOfType<ProCamera2DParallaxObject>();
+			ProCamera2DParallaxObject[] array = Object.FindObjectsByType<ProCamera2DParallaxObject>(FindObjectsSortMode.None);
 			Dictionary<int, ProCamera2DParallaxLayer> dictionary = new Dictionary<int, ProCamera2DParallaxLayer>();
 			for (int i = 0; i <= 31; i++)
 			{

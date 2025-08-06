@@ -211,15 +211,11 @@ public class Combat : MonoBehaviour
 			{
 				health -= hurt;
 			}
-			if (IsHead())
-			{
-				GameManager.Instance.PostManager.StartHurt();
-			}
+			
 			if (health <= 0)
 			{
 				if (IsHead())
 				{
-					GameManager.Instance.PostManager.StartHurt();
 					GameManager.Instance.LevelManager.Defeat(DefeatType.died);
 				}
 				Die(_team);
