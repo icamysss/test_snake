@@ -2,20 +2,23 @@ using UnityEngine;
 
 public class ListenerSetter : MonoBehaviour
 {
+	private Camera _camera;
+	private GameManager _gameManager;
 	private void Start()
 	{
+		_camera = Camera.main;
+		_gameManager = GameManager.Instance;
 	}
 
 	private void Update()
 	{
-		if ((bool)GameManager.Instance && (bool)GameManager.Instance.LevelManager && (bool)GameManager.Instance.LevelManager.Player)
+		if (_gameManager == null) _gameManager = GameManager.Instance;
+		if (_camera == null) _camera = Camera.main;
+		
+		if (_gameManager !=null && _gameManager.LevelManager && _gameManager.LevelManager.Player)
 		{
-			base.transform.position = GameManager.Instance.LevelManager.Player.transform.position;
+			transform.position = _gameManager.LevelManager.Player.transform.position;
 		}
-		base.transform.rotation = Camera.main.transform.rotation;
-		if (GameManager.Instance.LevelManager.game3CType == LevelManager.game3Ctypes.topDown)
-		{
-			base.transform.position += Vector3.up * 2f;
-		}
+		transform.rotation = _camera.transform.rotation;
 	}
 }

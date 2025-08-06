@@ -38,7 +38,7 @@ public class AudioManager : MonoBehaviour
 
 	public StringAudioClipPair[] commonSoundEffects;
 
-	private Dictionary<string, StringAudioClipPair> commonSoundEffectsDictionary = new Dictionary<string, StringAudioClipPair>();
+	private Dictionary<string, StringAudioClipPair> commonSoundEffectsDictionary = new();
 
 	private float cached_PreferredMasterVolume;
 
@@ -67,17 +67,27 @@ public class AudioManager : MonoBehaviour
 
 	private void Awake()
 	{
-		instance = this;
-		commonSoundEffectsDictionary = new Dictionary<string, StringAudioClipPair>();
-		StringAudioClipPair[] array = commonSoundEffects;
-		foreach (StringAudioClipPair stringAudioClipPair in array)
+		if (instance == null)
 		{
-			commonSoundEffectsDictionary.Add(stringAudioClipPair.name, stringAudioClipPair);
+			instance = this;
+			DontDestroyOnLoad(gameObject); 
+		}
+		else
+		{
+			Destroy(gameObject);
+		}
+		
+		commonSoundEffectsDictionary = new Dictionary<string, StringAudioClipPair>();
+		foreach (var pair in commonSoundEffects)
+		{
+			commonSoundEffectsDictionary.Add(pair.name, pair);
 		}
 	}
 
 	private void Start()
 	{
+		_CacheValues();
+		_UpdateMixerValues();
 	}
 
 	private void Update()

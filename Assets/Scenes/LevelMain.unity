@@ -6662,7 +6662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 399d6513fd287738346eb11bb876392e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixer: {fileID: 24100000, guid: 60a76b1a0db941f79f1b23bf956d935c, type: 2}
+  mixer: {fileID: 24100000, guid: a93c0ebbc917148d383db3457726ace1, type: 2}
   masterVolumeParameter: volume_Master
   sfxVolumeParameter: volume_SFX
   bgmVolumeParameter: volume_BGM
@@ -29403,7 +29403,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
